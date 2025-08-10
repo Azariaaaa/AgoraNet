@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace AgoraNet.Core.Models
 {
-    public class Element
+    public abstract class Element
     {
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
         public string FillColor { get; set; } = "#808080";
         public double Opacity { get; set; }
+
+        public Element(double x, double y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public abstract string ToSvg();
     }
 }
