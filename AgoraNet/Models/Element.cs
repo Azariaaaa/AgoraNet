@@ -14,10 +14,11 @@ namespace AgoraNet.Core.Models
         public string FillColor { get; set; } = "#808080";
         public double Opacity { get; set; }
 
-        public Element(double x, double y)
+        public Element(double x, double y, double z)
         {
             X = x;
             Y = y;
+            Z = z;
         }
 
         public abstract string ToSvg();

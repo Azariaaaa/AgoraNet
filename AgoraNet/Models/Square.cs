@@ -10,8 +10,8 @@ namespace AgoraNet.Core.Models
     {
         public double Size { get; set; }
 
-        public Square(double x, double y, double size, string fillColor)
-            : base(x, y)
+        public Square(double x, double y, double z, double size, string fillColor)
+            : base(x, y, z)
         {
             Size = size;
             FillColor = fillColor;
