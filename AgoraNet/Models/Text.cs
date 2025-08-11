@@ -13,7 +13,7 @@ namespace AgoraNet.Core.Models
         public double FontSize { get; set; } = 16;
 
         public Text(double x, double y, double z, string content, string fillColor)
-        : base(x, y, z)
+            : base(x, y, z)
         {
             Content = content;
             FillColor = fillColor;
