@@ -11,7 +11,11 @@ namespace AgoraNet.Core.Parser
     {
         public static ParseResult ParseFile(string path)
         {
-              
+            string FileContent = File.ReadAllText(path);
+            // A coder 
+            // A coder 
+            // A coder 
+            return new ParseResult();
         }
     }
 }
