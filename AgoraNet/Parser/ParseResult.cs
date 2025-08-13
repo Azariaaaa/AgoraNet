@@ -11,5 +11,6 @@ namespace AgoraNet.Core.Parser
     {
         public bool Success { get; set; }
         public List<Element> Elements { get; set; } = new List<Element>();
+        public Diagnostic Diagnostic { get; set; } = new Diagnostic();
     }
 }
