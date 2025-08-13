@@ -11,12 +11,22 @@ Element {
 All graphical elements derive from the base Element class, which provides common properties such as position, color, and opacity.
 The Element class itself cannot be instantiated. You must create a specific element type (Square, Text, etc.).
 
+###############################
+
 Square {
 	size : double 
 }
+
+Sample : [Square : x = 10, y = 10, z = -1, fillColor = #808080, opacity = 0.80, size = 15]
+
+###############################
 
 Text {
 	content : string
 	fontFamilly : string
 	fontSize : double
 }
+
+Sample : [Text : x = 50, y = 5, z = 2, fillColor = #808080, opacity = 1, content = Hello World !, fontFamilly = Arial, fontSize = 12]
+
+###############################
