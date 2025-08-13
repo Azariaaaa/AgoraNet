@@ -8,7 +8,8 @@ Element {
 	opacity : double
 } 
 
-Each following elements inherite from Element class and these properties. You cannot define an Element directy. You must chose his type. Exemple : Square, Text etc..
+All graphical elements derive from the base Element class, which provides common properties such as position, color, and opacity.
+The Element class itself cannot be instantiated. You must create a specific element type (Square, Text, etc.).
 
 Square {
 	size : double 
