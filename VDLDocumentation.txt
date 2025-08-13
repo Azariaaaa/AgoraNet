@@ -1,0 +1,21 @@
+### Elements ###
+
+Element {
+	x : double
+	y : double
+	z : double
+	fillColor : string
+	opacity : double
+} 
+
+Each following elements inherite from Element class and these properties. You cannot define an Element directy. You must chose his type. Exemple : Square, Text etc..
+
+Square {
+	size : double 
+}
+
+Text {
+	content : string
+	fontFamilly : string
+	fontSize : double
+}

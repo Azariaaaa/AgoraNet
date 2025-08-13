@@ -9,9 +9,9 @@ namespace AgoraNet.Core.Parser
 {
     public class VdlParser
     {
-        public static ParseResult ParseFile()
+        public static ParseResult ParseFile(string path)
         {
-            return new ParseResult();
+              
         }
     }
 }
