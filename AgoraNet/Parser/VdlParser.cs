@@ -37,7 +37,19 @@ namespace AgoraNet.Core.Parser
 
         private static Element ParseRawElement(string rawElement)
         {
-            throw new NotImplementedException();
+            char charac = '¤';
+            int index = 1; //jump over first char because its always '['
+            string elementName = "";
+            while(charac != ' ')
+            {
+                charac = rawElement[index];
+                elementName += rawElement[index];
+                index++;
+            }
+
+            //A coder
+
+            return new Square(1,1,1,1,"color");
         }
     }
 }
