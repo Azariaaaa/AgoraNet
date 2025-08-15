@@ -27,19 +27,39 @@ namespace AgoraNet.Core.Parser
         private static List<Element> ParseList(List<string> rawElements)
         {
             List<Element> elements = new List<Element>();
+            Element? element = null;
+            string elementName = string.Empty;
+
             foreach (string rawElement in rawElements)
             {
-                Element element = ParseRawElement(rawElement);
+                elementName = GetElementNameFromRawElement(rawElement);
+
+                switch (elementName)
+                {
+                    case "Square":
+                        element = BuildSquare(rawElement);
+                        break;
+
+                    case "Text":
+                        element = BuildText(rawElement); 
+                        break;
+
+                    default: 
+                        throw new Exception("Element not reconized");
+                }
+
                 elements.Add(element);
             }
+
             return elements;
         }
 
-        private static Element ParseRawElement(string rawElement)
+        private static string GetElementNameFromRawElement(string rawElement)
         {
             char charac = '¤';
-            int index = 1; //jump over first char because its always '['
-            string elementName = "";
+            int index = 0;
+            string elementName = string.Empty;
+
             while(charac != ' ')
             {
                 charac = rawElement[index];
@@ -47,9 +67,16 @@ namespace AgoraNet.Core.Parser
                 index++;
             }
 
-            //A coder
+            return elementName;
+        }
 
-            return new Square(1,1,1,1,"color");
+        private static Square BuildSquare(string rawElement)
+        {
+            throw new NotImplementedException();
+        }
+        private static Text BuildText(string rawElement)
+        {
+            throw new NotImplementedException();
         }
     }
 }
