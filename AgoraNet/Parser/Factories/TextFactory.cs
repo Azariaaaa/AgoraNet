@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AgoraNet.Core.Models;
+using AgoraNet.Core.Parser.Core;
 
 namespace AgoraNet.Core.Parser.Factories
 {
@@ -12,58 +13,25 @@ namespace AgoraNet.Core.Parser.Factories
     {
         public Element Create(Dictionary<string, string> properties)
         {
-            double x = ParseRequiredDouble(properties, "x");
-            double y = ParseRequiredDouble(properties, "y");
-            double z = ParseRequiredDouble(properties, "z");
+            double x = ParseHelpers.ParseRequiredDouble(properties, "x");
+            double y = ParseHelpers.ParseRequiredDouble(properties, "y");
+            double z = ParseHelpers.ParseRequiredDouble(properties, "z");
 
-            string content = ParseRequiredString(properties, "content", "text");
-            string fill = ParseFillColor(properties);
+            string content = ParseHelpers.ParseRequiredString(properties, "content", "text");
+            string fill = ParseHelpers.ParseFillColor(properties);
 
-            Text text = new Text(x, y, z, content, fill);
+            var text = new Text(x, y, z, content, fill);
 
             if (properties.ContainsKey("fontFamily"))
                 text.FontFamily = properties["fontFamily"];
 
             if (properties.ContainsKey("fontSize"))
-                text.FontSize = ParseRequiredDouble(properties, "fontSize");
+                text.FontSize = ParseHelpers.ParseRequiredDouble(properties, "fontSize");
 
             if (properties.ContainsKey("opacity"))
-                text.Opacity = ParseRequiredDouble(properties, "opacity");
+                text.Opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
 
             return text;
-        }
-
-        private static double ParseRequiredDouble(IDictionary<string, string> props, string key)
-        {
-            if (!props.TryGetValue(key, out var value))
-                throw new ArgumentException($"Property '{key}' missing.");
-
-            if (!double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var result))
-                throw new ArgumentException($"Invalid value '{key}': '{value}'.");
-
-            return result;
-        }
-
-        private static string ParseRequiredString(IDictionary<string, string> props, params string[] keys)
-        {
-            foreach (var key in keys)
-            {
-                if (props.TryGetValue(key, out var value) && !string.IsNullOrWhiteSpace(value))
-                    return value;
-            }
-            throw new ArgumentException($"Required property missing ({string.Join("|", keys)}).");
-        }
-
-        private static string ParseFillColor(IDictionary<string, string> props)
-        {
-            if (props.TryGetValue("fillColor", out var c) && !string.IsNullOrWhiteSpace(c)) 
-                return c;
-            if (props.TryGetValue("fill", out c) && !string.IsNullOrWhiteSpace(c)) 
-                return c;
-            if (props.TryGetValue("color", out c) && !string.IsNullOrWhiteSpace(c)) 
-                return c;
-
-            return "#808080";
         }
     }
 }
