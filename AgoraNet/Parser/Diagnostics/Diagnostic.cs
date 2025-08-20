@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgoraNet.Core.Parser
+namespace AgoraNet.Core.Parser.Diagnostics
 {
     public class Diagnostic
     {

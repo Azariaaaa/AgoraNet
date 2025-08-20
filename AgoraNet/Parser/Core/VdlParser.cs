@@ -5,8 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AgoraNet.Core.Models;
+using AgoraNet.Core.Parser.Diagnostics;
 
-namespace AgoraNet.Core.Parser
+namespace AgoraNet.Core.Parser.Core
 {
     public static class VdlParser
     {
@@ -41,10 +42,10 @@ namespace AgoraNet.Core.Parser
                         break;
 
                     case "Text":
-                        element = BuildText(rawElement); 
+                        element = BuildText(rawElement);
                         break;
 
-                    default: 
+                    default:
                         throw new Exception("Element not reconized");
                 }
 
@@ -60,7 +61,7 @@ namespace AgoraNet.Core.Parser
             int index = 0;
             string elementName = string.Empty;
 
-            while(charac != ' ')
+            while (charac != ' ')
             {
                 charac = rawElement[index];
                 elementName += rawElement[index];

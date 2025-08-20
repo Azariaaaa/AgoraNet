@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AgoraNet.Core.Models;
 
-namespace AgoraNet.Core.Parser
+namespace AgoraNet.Core.Parser.Diagnostics
 {
     public class ParseResult
     {
