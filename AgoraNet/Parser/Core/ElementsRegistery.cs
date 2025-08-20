@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgoraNet.Core.Parser.Factories
+namespace AgoraNet.Core.Parser.Core
 {
-    public interface IElementFactory
+    public class ElementsRegistery
     {
     }
 }
