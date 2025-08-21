@@ -20,7 +20,7 @@ namespace AgoraNet.Core.Parser.Factories
             string content = ParseHelpers.ParseRequiredString(properties, "content", "text");
             string fill = ParseHelpers.ParseFillColor(properties);
 
-            var text = new Text(x, y, z, content, fill);
+            Text text = new Text(x, y, z, content, fill);
 
             if (properties.ContainsKey("fontFamily"))
                 text.FontFamily = properties["fontFamily"];

@@ -28,56 +28,32 @@ namespace AgoraNet.Core.Parser.Core
         private static List<Element> ParseList(List<string> rawElements)
         {
             List<Element> elements = new List<Element>();
+            Dictionary<string, string> properties = new Dictionary<string, string>();
             Element? element = null;
             string elementName = string.Empty;
 
             foreach (string rawElement in rawElements)
             {
-                elementName = GetElementNameFromRawElement(rawElement);
-
-                switch (elementName)
-                {
-                    case "Square":
-                        element = BuildSquare(rawElement);
-                        break;
-
-                    case "Text":
-                        element = BuildText(rawElement);
-                        break;
-
-                    default:
-                        throw new Exception("Element not reconized");
-                }
-
-                elements.Add(element);
+                // a coder
             }
 
             return elements;
         }
 
-        private static string GetElementNameFromRawElement(string rawElement)
-        {
-            char charac = '¤';
-            int index = 0;
-            string elementName = string.Empty;
+        //private static string GetElementNameFromRawElement(string rawElement)
+        //{
+        //    char charac = '¤';
+        //    int index = 0;
+        //    string elementName = string.Empty;
 
-            while (charac != ' ')
-            {
-                charac = rawElement[index];
-                elementName += rawElement[index];
-                index++;
-            }
+        //    while (charac != ' ')
+        //    {
+        //        charac = rawElement[index];
+        //        elementName += rawElement[index];
+        //        index++;
+        //    }
 
-            return elementName;
-        }
-
-        private static Square BuildSquare(string rawElement)
-        {
-            throw new NotImplementedException();
-        }
-        private static Text BuildText(string rawElement)
-        {
-            throw new NotImplementedException();
-        }
+        //    return elementName;
+        //}
     }
 }

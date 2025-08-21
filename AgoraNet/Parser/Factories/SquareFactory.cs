@@ -20,7 +20,7 @@ namespace AgoraNet.Core.Parser.Factories
 
             string fill = ParseHelpers.ParseFillColor(properties);
 
-            var square = new Square(x, y, z, size, fill);
+            Square square = new Square(x, y, z, size, fill);
 
             if (properties.ContainsKey("opacity"))
                 square.Opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
