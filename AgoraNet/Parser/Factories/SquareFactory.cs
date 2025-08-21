@@ -17,13 +17,10 @@ namespace AgoraNet.Core.Parser.Factories
             double y = ParseHelpers.ParseRequiredDouble(properties, "y");
             double z = ParseHelpers.ParseRequiredDouble(properties, "z");
             double size = ParseHelpers.ParseRequiredDouble(properties, "size");
-
+            double opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
             string fill = ParseHelpers.ParseFillColor(properties);
 
-            Square square = new Square(x, y, z, size, fill);
-
-            if (properties.ContainsKey("opacity"))
-                square.Opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
+            Square square = new Square(x, y, z, opacity, size, fill);
 
             return square;
         }

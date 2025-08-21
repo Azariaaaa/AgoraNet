@@ -10,11 +10,10 @@ namespace AgoraNet.Core.Models
     {
         public double Size { get; set; } = 10;
 
-        public Square(double x, double y, double z, double size, string fillColor)
-            : base(x, y, z)
+        public Square(double x, double y, double z, double opacity, double size, string fillColor)
+            : base(x, y, z, fillColor, opacity)
         {
             Size = size;
-            FillColor = fillColor;
         }
 
         public override string ToSvg()

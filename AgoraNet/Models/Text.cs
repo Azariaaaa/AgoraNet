@@ -12,11 +12,12 @@ namespace AgoraNet.Core.Models
         public string FontFamily { get; set; } = "Arial";
         public double FontSize { get; set; } = 16;
 
-        public Text(double x, double y, double z, string content, string fillColor)
-            : base(x, y, z)
+        public Text(double x, double y, double z, string content, string fillColor, double opacity, string fontFamilly, double fontSize)
+            : base(x, y, z, fillColor, opacity)
         {
             Content = content;
-            FillColor = fillColor;
+            FontFamily = fontFamilly;
+            FontSize = fontSize;
         }
 
         public override string ToSvg()
