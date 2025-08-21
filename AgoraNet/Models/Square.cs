@@ -8,7 +8,7 @@ namespace AgoraNet.Core.Models
 {
     public class Square : Element
     {
-        public double Size { get; set; }
+        public double Size { get; set; } = 10;
 
         public Square(double x, double y, double z, double size, string fillColor)
             : base(x, y, z)
