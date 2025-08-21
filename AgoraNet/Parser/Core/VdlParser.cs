@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AgoraNet.Core.Models;
 using AgoraNet.Core.Parser.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AgoraNet.Core.Parser.Core
 {
@@ -30,7 +31,6 @@ namespace AgoraNet.Core.Parser.Core
             List<Element> elements = new List<Element>();
             Dictionary<string, string> properties = new Dictionary<string, string>();
             Element? element = null;
-            string elementName = string.Empty;
 
             foreach (string rawElement in rawElements)
             {
@@ -40,20 +40,26 @@ namespace AgoraNet.Core.Parser.Core
             return elements;
         }
 
-        //private static string GetElementNameFromRawElement(string rawElement)
-        //{
-        //    char charac = '¤';
-        //    int index = 0;
-        //    string elementName = string.Empty;
+        private static Dictionary<string, string> ParseProperties(string rawElement)
+        {
+            Dictionary<string, string> properties = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            throw new NotImplementedException();
+        }
 
-        //    while (charac != ' ')
-        //    {
-        //        charac = rawElement[index];
-        //        elementName += rawElement[index];
-        //        index++;
-        //    }
+        private static string GetElementNameFromRawElement(string rawElement)
+        {
+            char charac = '¤';
+            int index = 0;
+            string elementName = string.Empty;
 
-        //    return elementName;
-        //}
+            while (charac != ' ')
+            {
+                charac = rawElement[index];
+                elementName += rawElement[index];
+                index++;
+            }
+
+            return elementName;
+        }
     }
 }
