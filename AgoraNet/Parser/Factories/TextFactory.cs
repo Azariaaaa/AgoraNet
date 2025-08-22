@@ -18,8 +18,11 @@ namespace AgoraNet.Core.Parser.Factories
             double z = ParseHelpers.ParseRequiredDouble(properties, "z");
             string content = ParseHelpers.ParseRequiredString(properties, "content", "text");
             string fillColor = ParseHelpers.ParseFillColor(properties);
+            double opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
+            string fontFamilly = ParseHelpers.ParseRequiredString(properties, "fontFamilly", "text");
+            double fontSize = ParseHelpers.ParseRequiredDouble(properties, "fontSize");
 
-            Text text = new Text(x, y, z, content, fillColor); // to adapt
+            Text text = new Text(x, y, z, content, fillColor, opacity, fontFamilly, fontSize);
 
             if (properties.ContainsKey("fontFamily"))
                 text.FontFamily = properties["fontFamily"];
