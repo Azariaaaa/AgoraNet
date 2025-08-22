@@ -24,15 +24,6 @@ namespace AgoraNet.Core.Parser.Factories
 
             Text text = new Text(x, y, z, content, fillColor, opacity, fontFamilly, fontSize);
 
-            if (properties.ContainsKey("fontFamily"))
-                text.FontFamily = properties["fontFamily"];
-
-            if (properties.ContainsKey("fontSize"))
-                text.FontSize = ParseHelpers.ParseRequiredDouble(properties, "fontSize");
-
-            if (properties.ContainsKey("opacity"))
-                text.Opacity = ParseHelpers.ParseRequiredDouble(properties, "opacity");
-
             return text;
         }
     }
