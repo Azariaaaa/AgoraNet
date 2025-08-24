@@ -59,6 +59,11 @@ namespace AgoraNet.Core.Parser.Core
                     value = parts[1];
                     properties.Add(key, value);
                     rawProperty = string.Empty;
+
+                    if (rawElement[i] == ',')
+                        i++;
+                    if (rawElement[i] == ']')
+                        break;
                 }
 
                 rawProperty += rawElement[i];
