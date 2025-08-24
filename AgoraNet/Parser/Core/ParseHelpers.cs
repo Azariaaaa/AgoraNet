@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AgoraNet.Core.Parser.Core
@@ -36,6 +37,11 @@ namespace AgoraNet.Core.Parser.Core
                 return c;
 
             return "#808080";
+        }
+
+        public static string RemoveAllWhiteSpaces(string text)
+        {
+            return Regex.Replace(text, @"\s+", "");
         }
 
         public static int GetPropertyIndex(string propertyName)

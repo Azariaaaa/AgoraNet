@@ -43,7 +43,28 @@ namespace AgoraNet.Core.Parser.Core
         private static Dictionary<string, string> ParseProperties(string rawElement)
         {
             Dictionary<string, string> properties = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            throw new NotImplementedException();
+            int startIndex = rawElement.IndexOf(':') + 1;
+            string rawProperty = string.Empty;
+            string cleanedRawProperty = string.Empty;
+            string key = string.Empty;
+            string value = string.Empty;
+
+            for (int i = startIndex; i < rawElement.Length; i++)
+            {
+                if (rawElement[i] == ',' || rawElement[i] == ']')
+                {
+                    cleanedRawProperty = ParseHelpers.RemoveAllWhiteSpaces(rawProperty);
+                    string[] parts = cleanedRawProperty.Split('=');
+                    key = parts[0];
+                    value = parts[1];
+                    properties.Add(key, value);
+                    rawProperty = string.Empty;
+                }
+
+                rawProperty += rawElement[i];
+            }
+
+            return properties;
         }
 
         private static string GetElementNameFromRawElement(string rawElement)
