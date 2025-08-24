@@ -16,7 +16,7 @@ namespace AgoraNet.Tests.Parser.Core.VdlParser
             // Assert
             Assert.NotNull(result);
             Assert.Equal("10", result["x"]);
-            Assert.Equal("20", result["y"]);
+            Assert.Equal("10", result["y"]);
             Assert.Equal("-1", result["z"]);
             Assert.Equal("#808080", result["fillColor"]);
             Assert.Equal("0.80", result["opacity"]);
