@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "�
 		VDLDocumentation.txt = VDLDocumentation.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgoraNet.Tests", "Agora_Net_Unit_Tests\AgoraNet.Tests.csproj", "{5B41E151-1211-436E-A212-45C99A82145E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{DB6932F7-DE03-46F2-BD11-9464C51EF04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB6932F7-DE03-46F2-BD11-9464C51EF04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB6932F7-DE03-46F2-BD11-9464C51EF04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B41E151-1211-436E-A212-45C99A82145E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B41E151-1211-436E-A212-45C99A82145E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B41E151-1211-436E-A212-45C99A82145E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B41E151-1211-436E-A212-45C99A82145E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
