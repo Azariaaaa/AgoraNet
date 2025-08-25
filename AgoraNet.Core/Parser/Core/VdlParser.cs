@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AgoraNet.Core.Models;
 using AgoraNet.Core.Parser.Diagnostics;
+using AgoraNet.Core.Parser.Factories;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AgoraNet.Core.Parser.Core
@@ -34,7 +35,8 @@ namespace AgoraNet.Core.Parser.Core
 
             foreach (string rawElement in rawElements)
             {
-                // a coder
+                properties = ParseProperties(rawElement);
+                //A coder
             }
 
             return elements;
