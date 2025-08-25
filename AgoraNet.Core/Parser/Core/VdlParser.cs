@@ -49,18 +49,15 @@ namespace AgoraNet.Core.Parser.Core
             Dictionary<string, string> properties = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             int startIndex = rawElement.IndexOf(':') + 1;
             string rawProperty = string.Empty;
-            string cleanedRawProperty = string.Empty;
-            string key = string.Empty;
-            string value = string.Empty;
 
             for (int i = startIndex; i < rawElement.Length; i++)
             {
                 if (rawElement[i] == ',' || rawElement[i] == ']')
                 {
-                    cleanedRawProperty = ParseHelpers.RemoveAllWhiteSpaces(rawProperty);
+                    string cleanedRawProperty = ParseHelpers.RemoveAllWhiteSpaces(rawProperty);
                     string[] parts = cleanedRawProperty.Split('=');
-                    key = parts[0];
-                    value = parts[1];
+                    string key = parts[0];
+                    string value = parts[1];
                     properties.Add(key, value);
                     rawProperty = string.Empty;
 
