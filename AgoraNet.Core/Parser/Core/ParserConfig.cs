@@ -11,7 +11,7 @@ namespace AgoraNet.Core.Parser.Core
     {
         private static bool _initialized = false;
 
-        public static void RegisterDefaults()
+        public static void RegisterElementsTypes()
         {
             if (_initialized) 
                 return;

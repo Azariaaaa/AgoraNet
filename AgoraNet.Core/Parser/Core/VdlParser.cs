@@ -15,6 +15,7 @@ namespace AgoraNet.Core.Parser.Core
     {
         public static ParseResult ParseFile(string path)
         {
+            ParserConfig.RegisterElementsTypes();
             string fileContent = File.ReadAllText(path);
             List<string> rawElements = GetRawElements(fileContent);
             return new ParseResult();
@@ -31,12 +32,15 @@ namespace AgoraNet.Core.Parser.Core
         {
             List<Element> elements = new List<Element>();
             Dictionary<string, string> properties = new Dictionary<string, string>();
+            string elementName = string.Empty;
             Element? element = null;
 
             foreach (string rawElement in rawElements)
             {
+                elementName = GetElementNameFromRawElement(rawElement);
                 properties = ParseProperties(rawElement);
-                //A coder
+                element = ElementsRegistry.Create(elementName, properties);
+                elements.Add(element);
             }
 
             return elements;
