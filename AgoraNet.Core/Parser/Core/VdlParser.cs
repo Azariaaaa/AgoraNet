@@ -23,7 +23,8 @@ namespace AgoraNet.Core.Parser.Core
             return new ParseResult 
             {
                 Elements = elements,
-                Success = true
+                Success = true,
+                Diagnostic = new Diagnostic() { } // A modifier plus tard
             };
         }
 
