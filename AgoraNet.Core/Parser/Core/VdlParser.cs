@@ -32,14 +32,12 @@ namespace AgoraNet.Core.Parser.Core
         {
             List<Element> elements = new List<Element>();
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            string elementName = string.Empty;
-            Element? element = null;
 
             foreach (string rawElement in rawElements)
             {
-                elementName = GetElementNameFromRawElement(rawElement);
+                string elementName = GetElementNameFromRawElement(rawElement);
                 properties = ParseProperties(rawElement);
-                element = ElementsRegistry.Create(elementName, properties);
+                Element? element = ElementsRegistry.Create(elementName, properties);
                 elements.Add(element);
             }
 
