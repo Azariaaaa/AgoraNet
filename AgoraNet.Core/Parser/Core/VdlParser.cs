@@ -18,7 +18,13 @@ namespace AgoraNet.Core.Parser.Core
             ParserConfig.RegisterElementsTypes();
             string fileContent = File.ReadAllText(path);
             List<string> rawElements = GetRawElements(fileContent);
-            return new ParseResult();
+            List<Element> elements = ParseList(rawElements);
+
+            return new ParseResult 
+            {
+                Elements = elements,
+                Success = true
+            };
         }
 
         private static List<string> GetRawElements(string input)

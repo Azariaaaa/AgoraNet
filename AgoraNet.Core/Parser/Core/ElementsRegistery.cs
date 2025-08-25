@@ -25,20 +25,5 @@ namespace AgoraNet.Core.Parser.Core
 
             return _map[typeKey].Create(props);
         }
-
-        public static Element TryCreate(string typeKey, Dictionary<string, string> props)
-        {
-            if (!_map.ContainsKey(typeKey))
-                return null;
-
-            try
-            {
-                return _map[typeKey].Create(props);
-            }
-            catch
-            {
-                return null;
-            }
-        }
     }
 }
