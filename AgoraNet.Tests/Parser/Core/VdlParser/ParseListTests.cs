@@ -52,5 +52,31 @@ namespace AgoraNet.Tests.Parser.Core.VdlParser
             Assert.IsType<Square>(result[0]);
             Assert.IsType<Text>(result[1]);
         }
+
+        [Fact]
+        public void ParseList_ShouldReturnCorrectElementProperties()
+        {
+            //Arrange
+            List<string> testRawElements = new List<string>
+            {
+                "[Square : x = 25, y = 40, z = 0, fillColor = #FF5733, opacity = 0.65, size = 20]",
+            };
+
+            // Act
+            List<Element>? result = typeof(AgoraNet.Core.Parser.Core.VdlParser)
+                .GetMethod("ParseList", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)!
+                .Invoke(null, new object[] { testRawElements }) as List<Element>;
+
+            // Assert
+
+            Assert.NotNull(result);
+            Square square = Assert.IsType<Square>(result![0]);
+            Assert.Equal(25, square.X);
+            Assert.Equal(40, square.Y);
+            Assert.Equal(0, square.Z);
+            Assert.Equal("#FF5733", square.FillColor);
+            Assert.Equal(0.65, square.Opacity);
+            Assert.Equal(20, square.Size);
+        }
     }
 }
