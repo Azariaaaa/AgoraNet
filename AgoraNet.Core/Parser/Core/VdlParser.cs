@@ -82,16 +82,9 @@ namespace AgoraNet.Core.Parser.Core
 
         private static string GetElementNameFromRawElement(string rawElement)
         {
-            char charac = '¤';
-            int index = 0;
-            string elementName = string.Empty;
-
-            while (charac != ' ')
-            {
-                charac = rawElement[index];
-                elementName += rawElement[index];
-                index++;
-            }
+            int start = rawElement.IndexOf('[') + 1;
+            int end = rawElement.IndexOf(' ', start);
+            string elementName = rawElement.Substring(start, end - start);
 
             return elementName;
         }
