@@ -31,5 +31,26 @@ namespace AgoraNet.Tests.Parser.Core.VdlParser
             Assert.NotNull(result);
             Assert.Equal(result.Count, testRawElements.Count);
         }
+
+        [Fact]
+        public void ParseList_ShouldReturnCorrectElementTypes()
+        {
+            //Arrange
+            List<string> testRawElements = new List<string>
+            {
+                "[Square : x = 25, y = 40, z = 0, fillColor = #FF5733, opacity = 0.65, size = 20]",
+                "[Text : x = 200, y = 60, z = -1, fillColor = #808000, opacity = 0.85, content = Lorem Ipsum, fontFamilly = Calibri, fontSize = 18]"
+            };
+
+            // Act
+            List<Element>? result = typeof(AgoraNet.Core.Parser.Core.VdlParser)
+                .GetMethod("ParseList", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)!
+                .Invoke(null, new object[] { testRawElements }) as List<Element>;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.IsType<Square>(result[0]);
+            Assert.IsType<Text>(result[1]);
+        }
     }
 }
