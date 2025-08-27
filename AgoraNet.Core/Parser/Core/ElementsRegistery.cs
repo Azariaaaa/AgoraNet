@@ -13,6 +13,11 @@ namespace AgoraNet.Core.Parser.Core
         private static readonly Dictionary<string, IElementFactory> _map =
             new Dictionary<string, IElementFactory>(StringComparer.OrdinalIgnoreCase);
 
+        static ElementsRegistry()
+        {
+            ParserConfig.RegisterElementsTypes();
+        }
+
         public static void Register(string typeKey, IElementFactory factory)
         {
             _map[typeKey] = factory;
